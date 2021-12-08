@@ -10,8 +10,12 @@ namespace Csaladfa
     enum Nem { Férfi, Nő }
     class Csaladtag
     {
+        private static StreamWriter gy = new StreamWriter("g.txt");
+        private static StreamWriter graf = new StreamWriter("graf.txt");
+        private static StreamWriter grafhosszu = new StreamWriter("grafhosszu.txt");
+
         const int mingyerek = 1;
-        const int maxgyerek = 10;
+        const int maxgyerek = 5;
 
 
         static Random g = new Random();
@@ -20,6 +24,7 @@ namespace Csaladfa
         static Kalap<string> lanynevek = new Kalap<string>(Beolvas("soklanynev.txt"));
         private static List<string> Beolvas(string path) => File.ReadAllLines(path).ToList();
 
+        int id;
         Nem nem;
         public string Veznev { get; }
         public string Kernev { get; }
@@ -27,13 +32,15 @@ namespace Csaladfa
 
         List<Csaladtag> gyerekei;
 
-
+        private static List<Csaladtag> lista = new List<Csaladtag>();
         public Csaladtag(Nem nem, string veznev, string kernev)
         {
             this.nem = nem;
             this.Veznev = veznev;
             this.Kernev = kernev;
             gyerekei = new List<Csaladtag>();
+            lista.Add(this);
+            this.id = lista.Count;
         }
         public override string ToString() => $"{Veznev} {Kernev}";
         public Csaladtag(Nem nem, string veznev) : this(nem, veznev, Kernevek(nem).Pop()) { }
@@ -52,36 +59,63 @@ namespace Csaladfa
         
 
 
-        public static List<Csaladtag> operator +(Csaladtag apa, Csaladtag anya)
+        public static List<Csaladtag> operator +(Csaladtag egyik, Csaladtag masik)
         {
             int gyerekszam = g.Next(mingyerek, maxgyerek);
-            for (int i = 0; i < gyerekszam; i++)
+
+            (Csaladtag apa, Csaladtag anya) = egyik.nem == Nem.Férfi ? (egyik, masik) : (masik, egyik);
+
+
+            for (int i = 0; i < gyerekszam && VanMégNév(); i++)
                 Console.WriteLine(new Csaladtag(apa, anya));
+            foreach (Csaladtag gyerek in apa.gyerekei)
+            {
+                gy.WriteLine($"{apa.id}\t{gyerek.id}");
+                gy.WriteLine($"{anya.id}\t{gyerek.id}");
+
+                graf.WriteLine($"{apa.id} -> {gyerek.id};");
+                graf.WriteLine($"{anya.id} -> {gyerek.id};");
+
+                grafhosszu.WriteLine($"\"{apa}\" -> \"{gyerek}\";");
+                grafhosszu.WriteLine($"\"{ anya}\" -> \"{gyerek}\";");
+            }
+
+
 
             return apa.gyerekei;
         }
 
-        public bool Párt_keres()
+        private static bool VanMégNév() => 0 < veznevek.Count && 0 < fiunevek.Count && 0 < lanynevek.Count;
+
+        public List<Csaladtag> Párt_keres()
         {
-            if (veznevek.Count > 0)
-            {
-                Csaladtag pár = new Csaladtag(MásikNem(this.nem));
-                Console.WriteLine($"{this} párt talált magának: {pár}, gyerekeik pedig:");
-                List<Csaladtag> gyerekek = this + pár;
-                return true;
-            }
-            return false;
+            Csaladtag pár = new Csaladtag(MásikNem(this.nem));
+            Console.WriteLine($"{this} párt talált magának: {pár}, gyerekeik pedig:");
+            return this + pár;
         }
-        public void Családfagenerálás_Vezetéknevek_kifogyásáig()
+        public static void Családfagenerálás_Vezetéknevek_kifogyásáig()
         {
-            Kalap<Csaladtag> párkeresők = new Kalap<Csaladtag>();
-            párkeresők.Push(this);
-            while (0 < veznevek.Count)
+            while (VanMégNév())
             {
-                Csaladtag párkereső = párkeresők.Pop();
-                párkeresők.Push(párkereső + new Csaladtag(párkereső.nem));
+                Kalap<Csaladtag> párkeresők = new Kalap<Csaladtag>();
+                párkeresők.Push(new Csaladtag());
+                while (0 < veznevek.Count)
+                    párkeresők.Push(párkeresők.Pop().Párt_keres());
             }
+
+            Univerzum_kiírása();
+            
+
         }
 
+        private static void Univerzum_kiírása()
+        {
+            using (StreamWriter u = new StreamWriter("u.txt"))
+            {
+                u.WriteLine($"id\tveznev\tkernev\tnem");
+                foreach (Csaladtag ember in lista)
+                    u.WriteLine($"{ember.id}\t{ember.Veznev}\t{ember.Kernev}\t{ember.nem}");
+            }
+        }
     }
 }

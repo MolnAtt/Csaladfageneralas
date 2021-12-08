@@ -10,8 +10,7 @@ namespace Csaladfa
     {
         static void Main(string[] args)
         {
-            Csaladtag ős = new Csaladtag();
-            ős.Családfagenerálás_Vezetéknevek_kifogyásáig();
+            Csaladtag.Családfagenerálás_Vezetéknevek_kifogyásáig();
         }
     }
 }
