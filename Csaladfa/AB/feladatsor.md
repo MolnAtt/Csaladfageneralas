@@ -32,7 +32,7 @@ Ne feledd, hogy az sql-kódot nem "írni", hanem "bővítgetni" kell!
 
 ## Elemi csoportosítások
 1. Melyik vezetéknévnek van a legtöbb viselője?
-2. Kinek hány gyermeke van?
+2. Melyik szülőnek hány gyermeke van?
 3. Hány gyermeke van a legtöbb gyermekkel bíró szülőnek?
 4. Add meg, hogy hány 2-gyerekkel bíró szülő van!
 5. Add meg, hogy hány 1-gyerekes, 2-gyerekes, stb. szülő van! (0 gyerekes szülő nincs!)
