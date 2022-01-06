@@ -32,22 +32,22 @@ Ne feledd, hogy az sql-kódot nem "írni", hanem "bővítgetni" kell!
 
 ## Elemi csoportosítások
 1. Melyik vezetéknévnek van a legtöbb viselője?
-2. Melyik szülőnek hány gyermeke van?
-3. Hány gyermeke van a legtöbb gyermekkel bíró szülőnek?
-4. Add meg, hogy hány 2-gyerekkel bíró szülő van!
-5. Add meg, hogy hány 1-gyerekes, 2-gyerekes, stb. szülő van! (0 gyerekes szülő nincs!)
-6. Hány olyan vezetéknév van, amelyet csak egyetlen ember hord?
+0. Melyik szülőnek hány gyermeke van?
+0. Hány gyermeke van a legtöbb gyermekkel bíró szülőnek?
+0. Add meg, hogy hány 2-gyerekkel bíró szülő van!
+0. Add meg, hogy hány 1-gyerekes, 2-gyerekes, stb. szülő van! (0 gyerekes szülő nincs!)
+0. Hány olyan vezetéknév van, amelyet csak egyetlen ember hord?
 
 ## Projekciók:
 
 1. Kik a szülők, azaz azok, akiknek van gyermekük? 
-3. Hány szülő van?
-4. Az U tábla segítségével szerepeltesd a szülők neveit és a választ rendezd vezetéknév szerint ábécésorrendbe!
-5. Add meg azt a szülőt, aki a legelső a szülők névsorában!
-6. Kik azok, akik gyermekei valakiknek? 
-6. Hány gyermek van?
-7. Az U tábla segítségével szerepeltesd a gyerekek neveit és a választ rendezd vezetéknév szerint ábécésorrendbe!
-8. Add meg azt a gyermeket, aki a legutolsó a gyerekek névsorában!
+0. Hány szülő van?
+0. Az U tábla segítségével szerepeltesd a szülők neveit és a választ rendezd vezetéknév szerint ábécésorrendbe!
+0. Add meg azt a szülőt, aki a legelső a szülők névsorában!
+0. Kik azok, akik gyermekei valakiknek? 
+0. Hány gyermek van?
+0. Az U tábla segítségével szerepeltesd a gyerekek neveit és a választ rendezd vezetéknév szerint ábécésorrendbe!
+0. Add meg azt a gyermeket, aki a legutolsó a gyerekek névsorában!
 
 ## Definíciók:
 
