@@ -40,7 +40,7 @@ Ne feledd, hogy az sql-kódot nem "írni", hanem "bővítgetni" kell!
 
 ## Projekciók:
 
-2. Kik a szülők, azaz azok, akiknek van gyermekük? 
+1. Kik a szülők, azaz azok, akiknek van gyermekük? 
 3. Hány szülő van?
 4. Az U tábla segítségével szerepeltesd a szülők neveit és a választ rendezd vezetéknév szerint ábécésorrendbe!
 5. Add meg azt a szülőt, aki a legelső a szülők névsorában!
