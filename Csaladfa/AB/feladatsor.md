@@ -71,13 +71,13 @@ Ne feledd, hogy az sql-kódot nem "írni", hanem "bővítgetni" kell!
 9. Hozd létre az Testvér relációt! Ügyelj arra, hogy senki sem testvére önmagának!
 10. Az U segítségével szerepeltesd a Testvérpárok neveit is az előbbi tábla alapján!
 
-### Testvér:
-11. Hozd létre a húg relációt!
+### Lánytestvér:
+11. Hozd létre a lánytestvér relációt!
 12. Az U segítségével szerepeltesd a párok neveit is az előbbi tábla alapján!
 
 ### Fiús anyuka:
 13. Hozd létre a "fiús anyuka" relációt! Azt mondjuk, hogy egy anya fiús anyuka, ha minden gyermeke fiú.
-14. Az U segítségével szerepeltesd a párok neveit is az előbbi tábla alapján!
+14. Az U segítségével szerepeltesd a fiús anyukák neveit is az előbbi tábla alapján!
 
 
 ## Unokatestvér
